@@ -1,0 +1,15 @@
+CREATE TABLE livro(
+    id_livro integer primary key,
+    titulo varchar,
+    autor varchar,
+    num_copias integer
+);
+
+CREATE TABLE emprestimo(
+    id_emprestimo integer primary key,
+    id_livro integer,
+    data_entrega date,
+    data_devolucao date,
+
+    CONSTRAINT fk_id_livro FOREIGN KEY (id_livro) REFERENCES livro(id_livro)
+);
