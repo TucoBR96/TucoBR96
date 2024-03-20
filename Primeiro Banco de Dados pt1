@@ -1,0 +1,20 @@
+CREATE TABLE professor (
+    id_professor integer primary key,
+    nome text
+);
+
+CREATE TABLE turma (
+    id_turma integer primary key,
+    numero integer,
+    nivel integer,
+    id_professor integer,
+    CONSTRAINT fk_id_professor FOREIGN KEY (id_professor) REFERENCES professor (id_professor)
+);
+
+CREATE TABLE aluno (
+    id_aluno integer primary key,
+    nome text,
+    data_nascimento date,
+    id_turma integer,
+    CONSTRAINT fk_id_turma FOREIGN KEY (id_turma) REFERENCES turma (id_turma)
+);
